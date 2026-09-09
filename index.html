@@ -1,0 +1,995 @@
+<title>Bonanza Group of Companies</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+  :root {
+    --ink:        #10241F;
+    --bg:         #F1F3F0;
+    --surface:    #FAFBF9;
+    --surface-2:  #E7EBE6;
+    --line:       #D9DFDA;
+    --line-soft:  #E5EAE6;
+    --muted:      #5C6B66;
+
+    --staffing:      #0F6B5C;
+    --staffing-deep: #0A463C;
+    --staffing-tint: #E4EFEC;
+
+    --medical:      #9C6C16;
+    --medical-deep: #7A5411;
+    --medical-tint: #F3EBDA;
+
+    --spark:      #A6371F;
+    --on-dark:    #F4F8F6;
+
+    --f-display: "Fraunces", Georgia, "Times New Roman", serif;
+    --f-body:    "Public Sans", -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    --f-mono:    "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+
+    --measure: 62ch;
+    --gutter: clamp(1.25rem, 4vw, 3rem);
+    --page: 1180px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ink:        #E6EDE8;
+      --bg:         #0B1412;
+      --surface:    #101C19;
+      --surface-2:  #16221E;
+      --line:       #22322D;
+      --line-soft:  #1A2724;
+      --muted:      #8DA098;
+
+      --staffing:      #56C4AA;
+      --staffing-deep: #123D34;
+      --staffing-tint: #12241F;
+
+      --medical:      #D6A94E;
+      --medical-deep: #3D2E10;
+      --medical-tint: #241C0D;
+
+      --spark:      #D9765C;
+      --on-dark:    #071310;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ink:        #E6EDE8;
+    --bg:         #0B1412;
+    --surface:    #101C19;
+    --surface-2:  #16221E;
+    --line:       #22322D;
+    --line-soft:  #1A2724;
+    --muted:      #8DA098;
+
+    --staffing:      #56C4AA;
+    --staffing-deep: #123D34;
+    --staffing-tint: #12241F;
+
+    --medical:      #D6A94E;
+    --medical-deep: #3D2E10;
+    --medical-tint: #241C0D;
+
+    --spark:      #D9765C;
+    --on-dark:    #071310;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--f-body);
+    font-size: 1rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; }
+  img, svg { display: block; max-width: 100%; }
+
+  :focus-visible {
+    outline: 2px solid var(--staffing);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  .wrap {
+    max-width: var(--page);
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+  }
+
+  .eyebrow {
+    font-family: var(--f-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 1rem;
+  }
+
+  h1, h2, h3 { text-wrap: balance; }
+
+  /* ---------- top utility bar ---------- */
+
+  .topbar {
+    background: var(--staffing-deep);
+    color: var(--on-dark);
+  }
+
+  .topbar .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem 2rem;
+    flex-wrap: wrap;
+    padding-block: 0.55rem;
+    font-family: var(--f-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+  }
+
+  .topbar-group { color: var(--on-dark); text-transform: uppercase; opacity: 0.92; }
+
+  .topbar-contacts {
+    display: flex;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .topbar-contacts span { opacity: 0.92; }
+  .topbar-contacts .tag { color: var(--spark); font-weight: 500; }
+
+  .social-row { display: flex; gap: 0.5rem; }
+
+  .social-row a {
+    width: 24px; height: 24px;
+    display: grid; place-items: center;
+    border: 1px solid rgba(244,248,246,0.35);
+    border-radius: 50%;
+    text-decoration: none;
+    color: var(--on-dark);
+    transition: background 140ms ease, border-color 140ms ease;
+  }
+
+  .social-row a:hover { background: rgba(244,248,246,0.15); border-color: var(--on-dark); }
+  .social-row svg { width: 12px; height: 12px; }
+
+  /* ---------- masthead / nav ---------- */
+
+  .masthead {
+    border-bottom: 1px solid var(--line);
+    background: var(--surface);
+    position: sticky;
+    top: 0;
+    z-index: 20;
+  }
+
+  .masthead .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    padding-block: 1rem;
+  }
+
+  .brandmark { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
+  .brandmark svg { width: 34px; height: 34px; flex: none; }
+
+  .brandmark .name {
+    font-family: var(--f-display);
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+  }
+
+  .brandmark .sub {
+    display: block;
+    font-family: var(--f-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 0.2rem;
+  }
+
+  .masthead nav {
+    display: flex;
+    gap: 1.4rem;
+    font-size: 0.86rem;
+    font-weight: 500;
+    flex-wrap: wrap;
+  }
+
+  .masthead nav a {
+    color: var(--muted);
+    text-decoration: none;
+    padding-bottom: 3px;
+    border-bottom: 1px solid transparent;
+    transition: color 140ms ease, border-color 140ms ease;
+  }
+
+  .masthead nav a:hover { color: var(--ink); border-bottom-color: var(--staffing); }
+
+  /* ---------- hero ---------- */
+
+  .hero { padding-block: clamp(2.5rem, 6vw, 4.5rem); }
+
+  .hero .wrap {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.9fr);
+    gap: clamp(2rem, 5vw, 3.5rem);
+    align-items: center;
+  }
+
+  .hero h1 {
+    font-family: var(--f-display);
+    font-weight: 400;
+    font-size: clamp(2.1rem, 4.6vw, 3.1rem);
+    line-height: 1.14;
+    letter-spacing: -0.01em;
+    max-width: 17ch;
+    margin: 0 0 1.25rem;
+  }
+
+  .hero h1 em { font-style: italic; color: var(--staffing); }
+
+  .hero > .wrap > div:first-child > p.lede {
+    max-width: var(--measure);
+    color: var(--muted);
+    font-size: 1.05rem;
+    margin: 0 0 1.75rem;
+  }
+
+  .cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--f-body);
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 0.75rem 1.25rem;
+    border-radius: 3px;
+    border: 1px solid transparent;
+    transition: transform 140ms ease, background 140ms ease, border-color 140ms ease;
+  }
+
+  .btn:hover { transform: translateY(-1px); }
+
+  .btn-staffing { background: var(--staffing); color: var(--on-dark); }
+  .btn-staffing:hover { background: var(--staffing-deep); }
+
+  .btn-medical { background: var(--medical); color: var(--on-dark); }
+  .btn-medical:hover { background: var(--medical-deep); }
+
+  .btn-outline { background: transparent; color: var(--ink); border-color: var(--line); }
+  .btn-outline:hover { border-color: var(--ink); }
+
+  .hero-facts {
+    display: flex;
+    gap: clamp(1rem, 3vw, 2rem);
+    flex-wrap: wrap;
+    border-top: 1px solid var(--line);
+    padding-top: 1.25rem;
+  }
+
+  .hero-facts .fact { display: flex; flex-direction: column; gap: 0.3rem; }
+  .hero-facts .fact-label { font-family: var(--f-mono); font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+  .hero-facts .fact-value { font-size: 0.92rem; font-weight: 500; }
+
+  .hero-art {
+    background: var(--staffing-deep);
+    border-radius: 6px;
+    padding: 1.5rem;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-art svg { width: 100%; height: 100%; }
+
+  .route-line {
+    fill: none;
+    stroke: rgba(244,248,246,0.45);
+    stroke-width: 1.5;
+    stroke-dasharray: 5 5;
+    animation: dash 22s linear infinite;
+  }
+
+  @keyframes dash { to { stroke-dashoffset: -300; } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .route-line { animation: none; }
+  }
+
+  /* ---------- mission ---------- */
+
+  .mission { padding-block: clamp(2.5rem, 6vw, 4rem); border-top: 1px solid var(--line); }
+
+  .mission .wrap { display: grid; grid-template-columns: minmax(0,1.3fr) minmax(240px,1fr); gap: clamp(2rem, 5vw, 3.5rem); }
+
+  .mission h2 {
+    font-family: var(--f-display);
+    font-weight: 500;
+    font-size: clamp(1.6rem, 3.2vw, 2.1rem);
+    line-height: 1.22;
+    margin: 0 0 1rem;
+  }
+
+  .mission p { max-width: var(--measure); color: var(--muted); margin: 0 0 1rem; }
+  .mission p:last-child { margin-bottom: 0; }
+
+  .facts-panel {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-self: start;
+  }
+
+  .facts-panel .row { display: flex; justify-content: space-between; gap: 1rem; padding-bottom: 1rem; border-bottom: 1px solid var(--line-soft); font-size: 0.9rem; }
+  .facts-panel .row:last-child { border-bottom: none; padding-bottom: 0; }
+  .facts-panel .row .k { color: var(--muted); }
+  .facts-panel .row .v { font-family: var(--f-mono); color: var(--spark); text-align: right; }
+
+  /* ---------- services ---------- */
+
+  .services { padding-block: clamp(2.5rem, 6vw, 4rem); border-top: 1px solid var(--line); background: var(--surface); }
+
+  .section-head { margin-bottom: 2.25rem; }
+  .section-head h2 {
+    font-family: var(--f-display);
+    font-weight: 500;
+    font-size: clamp(1.6rem, 3.2vw, 2.1rem);
+    line-height: 1.2;
+    margin: 0 0 0.6rem;
+  }
+  .section-head p { max-width: var(--measure); color: var(--muted); margin: 0; }
+
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .service-card {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .service-card .icon-tile {
+    width: 52px; height: 52px;
+    border-radius: 6px;
+    display: grid;
+    place-items: center;
+  }
+
+  .service-card.is-staffing .icon-tile { background: var(--staffing-tint); color: var(--staffing); }
+  .service-card.is-medical .icon-tile { background: var(--medical-tint); color: var(--medical); }
+
+  .service-card .icon-tile svg { width: 28px; height: 28px; }
+
+  .service-card h3 { font-family: var(--f-body); font-size: 1.08rem; font-weight: 700; margin: 0; }
+  .service-card p { margin: 0; color: var(--muted); font-size: 0.94rem; }
+
+  .service-card .who {
+    font-family: var(--f-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .service-card a.more {
+    margin-top: auto;
+    font-size: 0.86rem;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .service-card.is-staffing a.more { color: var(--staffing); }
+  .service-card.is-medical a.more { color: var(--medical); }
+
+  /* ---------- division deep dive ---------- */
+
+  .division-section { padding-block: clamp(3rem, 6vw, 4.5rem); border-top: 1px solid var(--line); scroll-margin-top: 5rem; }
+  .division-section.is-medical { background: var(--surface-2); }
+
+  .division-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid currentColor;
+  }
+
+  .division-section.is-staffing .division-head { color: var(--staffing); }
+  .division-section.is-medical .division-head { color: var(--medical); }
+
+  .division-head .division-tag {
+    font-family: var(--f-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin: 0 0 0.5rem;
+  }
+
+  .division-head h2 {
+    font-family: var(--f-display);
+    font-weight: 500;
+    font-size: clamp(1.4rem, 2.8vw, 1.85rem);
+    color: var(--ink);
+    margin: 0;
+  }
+
+  .division-icon { flex: none; width: 64px; height: 64px; }
+
+  .division-body {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: clamp(1.75rem, 4vw, 3rem);
+  }
+
+  .division-col h3 {
+    font-family: var(--f-body);
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0 0 1rem;
+  }
+
+  .division-col ul {
+    list-style: none;
+    margin: 0 0 1.25rem;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    font-size: 0.94rem;
+  }
+
+  .division-col li { display: grid; grid-template-columns: 1.1rem 1fr; gap: 0.35rem; }
+  .division-section.is-staffing .division-col li::before { content: "—"; font-family: var(--f-mono); color: var(--staffing); }
+  .division-section.is-medical .division-col li::before { content: "—"; font-family: var(--f-mono); color: var(--medical); }
+
+  /* ---------- process ---------- */
+
+  .steps {
+    counter-reset: step;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+  }
+
+  .step { counter-increment: step; border-top: 1px solid var(--line); padding-top: 0.85rem; }
+  .division-section.is-staffing .step::before { color: var(--staffing); }
+  .division-section.is-medical .step::before { color: var(--medical); }
+  .step::before {
+    content: "0" counter(step);
+    display: block;
+    font-family: var(--f-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    margin-bottom: 0.5rem;
+  }
+  .step h4 { font-family: var(--f-body); font-size: 0.88rem; font-weight: 600; margin: 0 0 0.3rem; }
+  .step p { margin: 0; font-size: 0.85rem; color: var(--muted); line-height: 1.55; }
+
+  /* ---------- destinations ---------- */
+
+  .destinations { padding-block: clamp(2.5rem, 6vw, 4rem); border-top: 1px solid var(--line); }
+
+  .dest-note {
+    font-family: var(--f-mono);
+    font-size: 0.72rem;
+    color: var(--spark);
+    border: 1px dashed var(--line);
+    border-radius: 4px;
+    padding: 0.6rem 0.85rem;
+    max-width: var(--measure);
+    margin: 0 0 1.75rem;
+  }
+
+  .dest-groups { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+  .dest-group h3 { font-size: 0.92rem; font-weight: 700; margin: 0 0 0.9rem; display: flex; align-items: center; gap: 0.5rem; }
+  .dest-group h3 svg { width: 18px; height: 18px; }
+  .dest-group.is-staffing h3 { color: var(--staffing); }
+  .dest-group.is-medical h3 { color: var(--medical); }
+
+  .chip-row { display: flex; flex-wrap: wrap; gap: 0.55rem; }
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.86rem;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 0.4rem 0.85rem;
+  }
+
+  /* ---------- why ---------- */
+
+  .why { padding-block: clamp(2.5rem, 6vw, 4rem); border-top: 1px solid var(--line); background: var(--surface); }
+
+  .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+  .why-item { display: flex; flex-direction: column; gap: 0.6rem; }
+  .why-item .num { font-family: var(--f-display); font-style: italic; font-size: 1.6rem; color: var(--staffing); }
+  .why-item:nth-child(2n) .num { color: var(--medical); }
+  .why-item h3 { font-size: 0.98rem; font-weight: 700; margin: 0; }
+  .why-item p { margin: 0; font-size: 0.9rem; color: var(--muted); }
+
+  /* ---------- contact ---------- */
+
+  .contact { border-top: 1px solid var(--line); background: var(--surface-2); padding-block: clamp(2.5rem, 6vw, 4rem); }
+
+  .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: clamp(1.5rem, 3vw, 2.5rem); margin-top: 1.5rem; }
+
+  .field { display: flex; flex-direction: column; gap: 0.5rem; }
+  .field-label { font-family: var(--f-mono); font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+
+  .placeholder {
+    font-family: var(--f-mono);
+    font-size: 0.85rem;
+    color: var(--spark);
+    border: 1px dashed var(--line);
+    border-radius: 3px;
+    padding: 0.55rem 0.75rem;
+    background: var(--bg);
+  }
+
+  /* ---------- footer ---------- */
+
+  footer { border-top: 1px solid var(--line); padding-block: 2.5rem; }
+
+  footer .wrap { display: flex; justify-content: space-between; align-items: flex-start; gap: 1.5rem 2rem; flex-wrap: wrap; }
+
+  .footer-brand { display: flex; gap: 0.75rem; align-items: flex-start; }
+  .footer-brand svg { width: 30px; height: 30px; flex: none; color: var(--muted); }
+  .footer-brand .lines { font-family: var(--f-mono); font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); line-height: 1.9; }
+  .footer-brand .lines strong { color: var(--ink); display: block; font-family: var(--f-display); font-size: 0.95rem; letter-spacing: 0; text-transform: none; font-style: normal; margin-bottom: 0.2rem; }
+
+  footer .note {
+    font-family: var(--f-mono);
+    font-size: 0.68rem;
+    color: var(--spark);
+    max-width: 34ch;
+    text-align: right;
+  }
+
+  @media (max-width: 720px) {
+    footer .note { text-align: left; }
+  }
+</style>
+
+<header class="topbar">
+  <div class="wrap">
+    <span class="topbar-group">Bonanza Group of Companies &middot; Uganda</span>
+    <div class="topbar-contacts">
+      <span>Tel <span class="tag">[ add phone number ]</span></span>
+      <span>Mail <span class="tag">[ add email address ]</span></span>
+      <span>Hours <span class="tag">[ add working hours ]</span></span>
+      <span class="social-row" aria-label="Social links — placeholders">
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9h3V5h-3c-2 0-3.5 1.3-3.5 3.5V11H8v4h2.5v6h4v-6H17l.5-4h-3v-1.7c0-.7.3-1.3 1-1.3z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="4"/><circle cx="12" cy="12" r="3.3"/><circle cx="16.6" cy="7.4" r="0.6" fill="currentColor" stroke="none"/></svg></a>
+        <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><line x1="8" y1="10.5" x2="8" y2="16"/><circle cx="8" cy="7.3" r="0.6" fill="currentColor" stroke="none"/><path d="M12 16v-3.2c0-1.5 1-2.3 2.2-2.3s1.8.8 1.8 2.3V16"/></svg></a>
+      </span>
+    </div>
+  </div>
+</header>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="brandmark" href="#top">
+      <svg viewBox="0 0 40 40" aria-hidden="true">
+        <circle cx="20" cy="20" r="19" fill="none" stroke="currentColor" stroke-width="1.4" opacity="0.35"/>
+        <path d="M20 6c3.5 3 5.5 6.7 5.5 12.3 0 3-1 5.3-2.6 7.2" fill="none" stroke="#0F6B5C" stroke-width="1.6" stroke-linecap="round"/>
+        <path d="M20 6c-3.5 3-5.5 6.7-5.5 12.3 0 5.6 2.7 9.6 5.5 12.4" fill="none" stroke="#9C6C16" stroke-width="1.6" stroke-linecap="round"/>
+        <circle cx="20" cy="18.5" r="2.1" fill="#A6371F"/>
+      </svg>
+      <span>
+        <span class="name">Bonanza Group</span>
+        <span class="sub">Staffing &amp; Medical Travel &middot; Uganda</span>
+      </span>
+    </a>
+    <nav>
+      <a href="#staffing">Hire a Talent</a>
+      <a href="#staffing">Find a Job</a>
+      <a href="#medical">Medical Travel</a>
+      <a href="#mission">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Hire a Talent &middot; Find a Job &middot; Seek Medical Attention Abroad</p>
+        <h1>Wherever the opportunity is, <em>we get you there</em>.</h1>
+        <p class="lede">Bonanza Group of Companies is a Ugandan group of two sister companies. Bonanza Staffing Solutions Limited places workers with employers at home and abroad. Bonanza Medical Tours and Travel arranges treatment abroad for patients who need care beyond what's available locally &mdash; one group, one desk, two mandates.</p>
+        <div class="cta-row">
+          <a class="btn btn-staffing" href="#staffing">Hire a Talent</a>
+          <a class="btn btn-outline" href="#staffing">Find a Job</a>
+          <a class="btn btn-medical" href="#medical">Seek Medical Attention Abroad</a>
+        </div>
+        <div class="hero-facts">
+          <div class="fact">
+            <span class="fact-label">Head office</span>
+            <span class="fact-value">[ Kampala, Uganda ]</span>
+          </div>
+          <div class="fact">
+            <span class="fact-label">Divisions</span>
+            <span class="fact-value">Staffing &amp; Medical Travel</span>
+          </div>
+          <div class="fact">
+            <span class="fact-label">Registration</span>
+            <span class="fact-value">[ add registration / licence no. ]</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-art">
+        <svg viewBox="0 0 440 440" role="img" aria-label="Routes from Kampala outward to employers, job destinations and partner hospitals">
+          <circle cx="220" cy="220" r="170" fill="none" stroke="rgba(244,248,246,0.18)" stroke-width="1"/>
+          <circle cx="220" cy="220" r="120" fill="none" stroke="rgba(244,248,246,0.14)" stroke-width="1"/>
+
+          <path class="route-line" d="M220,220 Q300,120 350,90"/>
+          <path class="route-line" d="M220,220 Q310,290 360,320"/>
+          <path class="route-line" d="M220,220 Q140,255 72,262"/>
+
+          <!-- Kampala marker -->
+          <circle cx="220" cy="220" r="8" fill="#F4F8F6"/>
+          <circle cx="220" cy="220" r="14" fill="none" stroke="#F4F8F6" stroke-width="1.2" opacity="0.6"/>
+          <text x="220" y="248" text-anchor="middle" fill="#F4F8F6" font-family="IBM Plex Mono, monospace" font-size="11" letter-spacing="1.5">KAMPALA</text>
+
+          <!-- Gulf & overseas jobs -->
+          <g transform="translate(350,90)">
+            <circle r="22" fill="#0A463C" stroke="#56C4AA" stroke-width="1.4"/>
+            <rect x="-8" y="-6" width="16" height="11" rx="1.5" fill="none" stroke="#F4F8F6" stroke-width="1.4"/>
+            <rect x="-4" y="-9" width="8" height="4" rx="1" fill="none" stroke="#F4F8F6" stroke-width="1.4"/>
+            <text x="0" y="38" text-anchor="middle" fill="#F4F8F6" font-family="IBM Plex Mono, monospace" font-size="9.5" letter-spacing="1">OVERSEAS JOBS</text>
+          </g>
+
+          <!-- Partner hospitals -->
+          <g transform="translate(360,320)">
+            <circle r="22" fill="#5c4416" stroke="#D6A94E" stroke-width="1.4"/>
+            <line x1="0" y1="-8" x2="0" y2="8" stroke="#F4F8F6" stroke-width="2.4" stroke-linecap="round"/>
+            <line x1="-8" y1="0" x2="8" y2="0" stroke="#F4F8F6" stroke-width="2.4" stroke-linecap="round"/>
+            <text x="0" y="38" text-anchor="middle" fill="#F4F8F6" font-family="IBM Plex Mono, monospace" font-size="9.5" letter-spacing="1">PARTNER HOSPITALS</text>
+          </g>
+
+          <!-- Home & regional jobs -->
+          <g transform="translate(72,262)">
+            <circle r="22" fill="#0A463C" stroke="#56C4AA" stroke-width="1.4"/>
+            <rect x="-8" y="-5" width="16" height="10" rx="1.5" fill="none" stroke="#F4F8F6" stroke-width="1.4"/>
+            <rect x="-3.5" y="-8" width="7" height="3.5" rx="1" fill="none" stroke="#F4F8F6" stroke-width="1.4"/>
+            <text x="0" y="38" text-anchor="middle" fill="#F4F8F6" font-family="IBM Plex Mono, monospace" font-size="9.5" letter-spacing="1">HOME &amp; REGIONAL</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="mission" id="mission">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Two companies, one Bonanza</p>
+        <h2>One group, built around the paperwork that usually stalls people's plans.</h2>
+        <p>Bonanza Group of Companies was formed to put two everyday problems under one Ugandan roof: an employer who needs verified workers fast, and a patient who needs treatment that isn't available at home yet. Both problems come down to the same bottleneck &mdash; documentation, clearance and travel &mdash; so both companies are run out of the same desk, by the same standard.</p>
+        <p><strong>Bonanza Staffing Solutions Limited</strong> recruits, vets and deploys workers, and helps job seekers find and prepare for verified vacancies. <strong>Bonanza Medical Tours and Travel</strong> coordinates referrals, visas and logistics for patients travelling for care. Different clients, same commitment: nothing moves until the paperwork is confirmed in writing.</p>
+      </div>
+      <div class="facts-panel">
+        <div class="row"><span class="k">Group</span><span class="v">Bonanza Group of Companies</span></div>
+        <div class="row"><span class="k">Country</span><span class="v">Uganda</span></div>
+        <div class="row"><span class="k">Staffing arm</span><span class="v">Bonanza Staffing Solutions Ltd</span></div>
+        <div class="row"><span class="k">Travel arm</span><span class="v">Bonanza Medical Tours &amp; Travel</span></div>
+        <div class="row"><span class="k">Established</span><span class="v">[ add year ]</span></div>
+        <div class="row"><span class="k">Licence no.</span><span class="v">[ add licence no. ]</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">What we do</p>
+        <h2>Three services, two companies, one front door.</h2>
+        <p>Tell us which one you need and the right team picks it up from there.</p>
+      </div>
+      <div class="service-grid">
+
+        <article class="service-card is-staffing">
+          <span class="icon-tile" aria-hidden="true">
+            <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="8" y="16" width="24" height="15" rx="2"/>
+              <path d="M15 16v-3.5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2V16"/>
+              <line x1="8" y1="22.5" x2="32" y2="22.5"/>
+            </svg>
+          </span>
+          <span class="who">For employers</span>
+          <h3>Hire a Talent</h3>
+          <p>Post a vacancy and get a shortlist of vetted, trade-tested candidates &mdash; with documentation and deployment handled for you.</p>
+          <a class="more" href="#staffing">See how hiring works &rarr;</a>
+        </article>
+
+        <article class="service-card is-staffing">
+          <span class="icon-tile" aria-hidden="true">
+            <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="9" y="7" width="17" height="26" rx="1.5"/>
+              <line x1="13" y1="13" x2="22" y2="13"/>
+              <line x1="13" y1="18" x2="22" y2="18"/>
+              <line x1="13" y1="23" x2="18" y2="23"/>
+              <circle cx="26" cy="27" r="5.5"/>
+              <line x1="30" y1="31" x2="33.5" y2="34.5"/>
+            </svg>
+          </span>
+          <span class="who">For job seekers</span>
+          <h3>Find a Job</h3>
+          <p>Register your skills once and get matched to verified vacancies at home and abroad, with training before you travel.</p>
+          <a class="more" href="#staffing">See how job matching works &rarr;</a>
+        </article>
+
+        <article class="service-card is-medical">
+          <span class="icon-tile" aria-hidden="true">
+            <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="17" cy="22" r="11"/>
+              <line x1="17" y1="17" x2="17" y2="27"/>
+              <line x1="12" y1="22" x2="22" y2="22"/>
+              <path d="M25 12l7-4 3 3-4 7-4-1-1-4z"/>
+            </svg>
+          </span>
+          <span class="who">For patients</span>
+          <h3>Seek Medical Attention Abroad</h3>
+          <p>Get matched to the right specialist hospital abroad, with a written treatment estimate, visas and travel arranged around you.</p>
+          <a class="more" href="#medical">See how medical travel works &rarr;</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="division-section is-staffing" id="staffing">
+    <div class="wrap">
+      <div class="division-head">
+        <div>
+          <p class="division-tag">Bonanza Staffing Solutions Limited</p>
+          <h2>Hire a Talent &amp; Find a Job</h2>
+        </div>
+        <svg class="division-icon" viewBox="0 0 64 64" fill="none" stroke="#0F6B5C" stroke-width="1.6" aria-hidden="true">
+          <rect x="12" y="24" width="40" height="26" rx="3"/>
+          <path d="M24 24v-6a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v6"/>
+          <line x1="12" y1="35" x2="52" y2="35"/>
+          <line x1="28" y1="30" x2="36" y2="30"/>
+        </svg>
+      </div>
+
+      <div class="division-body">
+        <div class="division-col">
+          <h3>For employers &mdash; Hire a Talent</h3>
+          <ul>
+            <li>Sourcing and shortlisting against your demand letter</li>
+            <li>Trade tests and skill verification before selection</li>
+            <li>Documentation, attestation and visa processing</li>
+            <li>Pre-departure orientation and travel briefing</li>
+            <li>Contract, offer letter and payroll coordination</li>
+            <li>Post-deployment follow-up with worker and employer</li>
+          </ul>
+        </div>
+        <div class="division-col">
+          <h3>For job seekers &mdash; Find a Job</h3>
+          <ul>
+            <li>Registration and CV / skills profile review</li>
+            <li>Trade testing and skills assessment</li>
+            <li>Matching against verified, confirmed vacancies</li>
+            <li>Guidance through documentation and visa steps</li>
+            <li>Pre-departure training and orientation</li>
+            <li>A named contact once you've arrived at post</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="steps">
+        <div class="step"><h4>Enquiry</h4><p>Employer demand or candidate registration received and scoped in writing.</p></div>
+        <div class="step"><h4>Vetting</h4><p>Documents, certificates and trade tests checked against the role's requirements.</p></div>
+        <div class="step"><h4>Clearance</h4><p>Visa filing and employer confirmation completed before travel is booked.</p></div>
+        <div class="step"><h4>Deployment</h4><p>Travel arranged, arrival confirmed, and a contact point on the ground.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="division-section is-medical" id="medical">
+    <div class="wrap">
+      <div class="division-head">
+        <div>
+          <p class="division-tag">Bonanza Medical Tours and Travel</p>
+          <h2>Seek Medical Attention Abroad</h2>
+        </div>
+        <svg class="division-icon" viewBox="0 0 64 64" fill="none" stroke="#9C6C16" stroke-width="1.6" aria-hidden="true">
+          <circle cx="26" cy="34" r="16"/>
+          <line x1="26" y1="26" x2="26" y2="42"/>
+          <line x1="18" y1="34" x2="34" y2="34"/>
+          <path d="M38 20l10-6 4 4-6 10-6-1.5-2-6.5z"/>
+        </svg>
+      </div>
+
+      <div class="division-body">
+        <div class="division-col">
+          <h3>What's included</h3>
+          <ul>
+            <li>Hospital and specialist referral matched to the diagnosis</li>
+            <li>Written treatment estimate confirmed before travel</li>
+            <li>Medical visa and attendant visa documentation support</li>
+            <li>Airport transfer, accommodation and local travel</li>
+            <li>Interpreter and attendant support during the stay</li>
+            <li>Discharge summary handover and follow-up scheduling</li>
+          </ul>
+        </div>
+        <div class="division-col">
+          <h3>Who this is for</h3>
+          <ul>
+            <li>Patients referred for specialist treatment not yet available locally</li>
+            <li>Families who need a second opinion from a partner hospital abroad</li>
+            <li>Anyone travelling with an attendant who also needs a visa</li>
+            <li>Patients who want one written estimate before committing to travel</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="steps">
+        <div class="step"><h4>Referral</h4><p>Diagnosis and reports reviewed and matched to a partner hospital.</p></div>
+        <div class="step"><h4>Estimate</h4><p>A written treatment and travel estimate is confirmed before you commit.</p></div>
+        <div class="step"><h4>Clearance</h4><p>Medical and attendant visas filed and hospital admission confirmed.</p></div>
+        <div class="step"><h4>Travel &amp; care</h4><p>Transfers, stay and interpreter arranged; follow-up scheduled on discharge.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="destinations">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Where Bonanza operates</p>
+        <h2>Typical destinations</h2>
+        <p>Illustrative only &mdash; replace with the markets you're currently licensed and contracted for.</p>
+      </div>
+      <p class="dest-note">Placeholder content: confirm actual licensed job markets and partner hospitals before publishing.</p>
+      <div class="dest-groups">
+        <div class="dest-group is-staffing">
+          <h3>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="10" width="14" height="9" rx="1.5"/><path d="M9 10V7a3 3 0 0 1 3-3h0a3 3 0 0 1 3 3v3"/></svg>
+            Common job destinations
+          </h3>
+          <div class="chip-row">
+            <span class="chip">🇦🇪 United Arab Emirates</span>
+            <span class="chip">🇸🇦 Saudi Arabia</span>
+            <span class="chip">🇶🇦 Qatar</span>
+            <span class="chip">🇰🇼 Kuwait</span>
+            <span class="chip">🇺🇬 Home &amp; regional (Uganda / EAC)</span>
+          </div>
+        </div>
+        <div class="dest-group is-medical">
+          <h3>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+            Common medical-travel destinations
+          </h3>
+          <div class="chip-row">
+            <span class="chip">🇮🇳 India</span>
+            <span class="chip">🇦🇪 United Arab Emirates</span>
+            <span class="chip">🇰🇪 Kenya</span>
+            <span class="chip">🇿🇦 South Africa</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="why">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Why Bonanza</p>
+        <h2>What you can expect from either desk</h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-item">
+          <span class="num">01</span>
+          <h3>One desk, two mandates</h3>
+          <p>Whether you're an employer, a job seeker or a patient, you deal with the same group under the same standard of follow-through.</p>
+        </div>
+        <div class="why-item">
+          <span class="num">02</span>
+          <h3>Nothing moves without paper</h3>
+          <p>Every stage &mdash; job offer, visa, hospital admission &mdash; is confirmed in writing before travel is booked.</p>
+        </div>
+        <div class="why-item">
+          <span class="num">03</span>
+          <h3>Costs confirmed up front</h3>
+          <p>A written estimate or contract is shared before you commit to a placement or a treatment plan.</p>
+        </div>
+        <div class="why-item">
+          <span class="num">04</span>
+          <h3>Support doesn't end at the airport</h3>
+          <p>Deployed workers and travelling patients keep a named contact for the length of their placement or stay.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Get in touch</p>
+        <h2>Talk to the Bonanza desk</h2>
+        <p>Enquiries for either company reach the same desk. Details below are placeholders &mdash; replace before the site goes live.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="field">
+          <span class="field-label">Telephone</span>
+          <span class="placeholder">[ add phone number ]</span>
+        </div>
+        <div class="field">
+          <span class="field-label">Email</span>
+          <span class="placeholder">[ add email address ]</span>
+        </div>
+        <div class="field">
+          <span class="field-label">Office</span>
+          <span class="placeholder">[ add street address, Kampala ]</span>
+        </div>
+        <div class="field">
+          <span class="field-label">Hours</span>
+          <span class="placeholder">[ add working hours ]</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-brand">
+      <svg viewBox="0 0 40 40" aria-hidden="true">
+        <circle cx="20" cy="20" r="19" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.4"/>
+        <path d="M20 6c3.5 3 5.5 6.7 5.5 12.3 0 3-1 5.3-2.6 7.2" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+        <path d="M20 6c-3.5 3-5.5 6.7-5.5 12.3 0 5.6 2.7 9.6 5.5 12.4" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      </svg>
+      <span class="lines">
+        <strong>Bonanza Group of Companies</strong>
+        Bonanza Staffing Solutions Limited<br>
+        Bonanza Medical Tours and Travel<br>
+        Uganda
+      </span>
+    </div>
+    <p class="note">Draft site &mdash; replace bracketed placeholders (contact details, registration numbers, destinations) with confirmed information before publishing live.</p>
+  </div>
+</footer>
