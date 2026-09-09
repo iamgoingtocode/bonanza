@@ -467,17 +467,6 @@
 
   .destinations { padding-block: clamp(2.5rem, 6vw, 4rem); border-top: 1px solid var(--line); }
 
-  .dest-note {
-    font-family: var(--f-mono);
-    font-size: 0.72rem;
-    color: var(--spark);
-    border: 1px dashed var(--line);
-    border-radius: 4px;
-    padding: 0.6rem 0.85rem;
-    max-width: var(--measure);
-    margin: 0 0 1.75rem;
-  }
-
   .dest-groups { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
   .dest-group h3 { font-size: 0.92rem; font-weight: 700; margin: 0 0 0.9rem; display: flex; align-items: center; gap: 0.5rem; }
   .dest-group h3 svg { width: 18px; height: 18px; }
@@ -516,15 +505,20 @@
   .field { display: flex; flex-direction: column; gap: 0.5rem; }
   .field-label { font-family: var(--f-mono); font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
 
-  .placeholder {
+  .value {
     font-family: var(--f-mono);
     font-size: 0.85rem;
-    color: var(--spark);
-    border: 1px dashed var(--line);
+    color: var(--ink);
+    border: 1px solid var(--line);
     border-radius: 3px;
     padding: 0.55rem 0.75rem;
-    background: var(--bg);
+    background: var(--surface);
+    line-height: 1.5;
   }
+
+  .value a { color: var(--staffing); text-decoration: none; }
+  .value a:hover { text-decoration: underline; }
+  .value .sep { color: var(--muted); padding: 0 0.15rem; }
 
   /* ---------- footer ---------- */
 
@@ -538,10 +532,11 @@
   .footer-brand .lines strong { color: var(--ink); display: block; font-family: var(--f-display); font-size: 0.95rem; letter-spacing: 0; text-transform: none; font-style: normal; margin-bottom: 0.2rem; }
 
   footer .note {
-    font-family: var(--f-mono);
-    font-size: 0.68rem;
-    color: var(--spark);
-    max-width: 34ch;
+    font-family: var(--f-display);
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--muted);
+    max-width: 30ch;
     text-align: right;
   }
 
@@ -554,9 +549,9 @@
   <div class="wrap">
     <span class="topbar-group">Bonanza Group of Companies &middot; Uganda</span>
     <div class="topbar-contacts">
-      <span>Tel <span class="tag">[ add phone number ]</span></span>
-      <span>Mail <span class="tag">[ add email address ]</span></span>
-      <span>Hours <span class="tag">[ add working hours ]</span></span>
+      <span>Tel <span class="tag"><a href="tel:+256750626782" style="color:inherit;text-decoration:none">+256 750 626 782</a> / <a href="tel:+256200950444" style="color:inherit;text-decoration:none">+256 200 950 444</a></span></span>
+      <span>Mail <span class="tag"><a href="mailto:bonanzastaffing.solutions@gmail.com" style="color:inherit;text-decoration:none">bonanzastaffing.solutions@gmail.com</a></span></span>
+      <span>Hours <span class="tag">Open 24 hours</span></span>
       <span class="social-row" aria-label="Social links — placeholders">
         <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9h3V5h-3c-2 0-3.5 1.3-3.5 3.5V11H8v4h2.5v6h4v-6H17l.5-4h-3v-1.7c0-.7.3-1.3 1-1.3z"/></svg></a>
         <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="4"/><circle cx="12" cy="12" r="3.3"/><circle cx="16.6" cy="7.4" r="0.6" fill="currentColor" stroke="none"/></svg></a>
@@ -606,20 +601,20 @@
         <div class="hero-facts">
           <div class="fact">
             <span class="fact-label">Head office</span>
-            <span class="fact-value">[ Kampala, Uganda ]</span>
+            <span class="fact-value">Iganga, Uganda</span>
           </div>
           <div class="fact">
             <span class="fact-label">Divisions</span>
             <span class="fact-value">Staffing &amp; Medical Travel</span>
           </div>
           <div class="fact">
-            <span class="fact-label">Registration</span>
-            <span class="fact-value">[ add registration / licence no. ]</span>
+            <span class="fact-label">Available</span>
+            <span class="fact-value">24 hours a day</span>
           </div>
         </div>
       </div>
       <div class="hero-art">
-        <svg viewBox="0 0 440 440" role="img" aria-label="Routes from Kampala outward to employers, job destinations and partner hospitals">
+        <svg viewBox="0 0 440 440" role="img" aria-label="Routes from Iganga outward to employers, job destinations and partner hospitals">
           <circle cx="220" cy="220" r="170" fill="none" stroke="rgba(244,248,246,0.18)" stroke-width="1"/>
           <circle cx="220" cy="220" r="120" fill="none" stroke="rgba(244,248,246,0.14)" stroke-width="1"/>
 
@@ -627,10 +622,10 @@
           <path class="route-line" d="M220,220 Q310,290 360,320"/>
           <path class="route-line" d="M220,220 Q140,255 72,262"/>
 
-          <!-- Kampala marker -->
+          <!-- Iganga (head office) marker -->
           <circle cx="220" cy="220" r="8" fill="#F4F8F6"/>
           <circle cx="220" cy="220" r="14" fill="none" stroke="#F4F8F6" stroke-width="1.2" opacity="0.6"/>
-          <text x="220" y="248" text-anchor="middle" fill="#F4F8F6" font-family="IBM Plex Mono, monospace" font-size="11" letter-spacing="1.5">KAMPALA</text>
+          <text x="220" y="248" text-anchor="middle" fill="#F4F8F6" font-family="IBM Plex Mono, monospace" font-size="11" letter-spacing="1.5">IGANGA</text>
 
           <!-- Gulf & overseas jobs -->
           <g transform="translate(350,90)">
@@ -673,8 +668,8 @@
         <div class="row"><span class="k">Country</span><span class="v">Uganda</span></div>
         <div class="row"><span class="k">Staffing arm</span><span class="v">Bonanza Staffing Solutions Ltd</span></div>
         <div class="row"><span class="k">Travel arm</span><span class="v">Bonanza Medical Tours &amp; Travel</span></div>
-        <div class="row"><span class="k">Established</span><span class="v">[ add year ]</span></div>
-        <div class="row"><span class="k">Licence no.</span><span class="v">[ add licence no. ]</span></div>
+        <div class="row"><span class="k">Head office</span><span class="v">Iganga</span></div>
+        <div class="row"><span class="k">Branch office</span><span class="v">Lweza</span></div>
       </div>
     </div>
   </section>
@@ -838,10 +833,9 @@
     <div class="wrap">
       <div class="section-head">
         <p class="eyebrow">Where Bonanza operates</p>
-        <h2>Typical destinations</h2>
-        <p>Illustrative only &mdash; replace with the markets you're currently licensed and contracted for.</p>
+        <h2>Where the opportunities are</h2>
+        <p>The Gulf states for job placements, and leading regional and international hospitals for specialist care.</p>
       </div>
-      <p class="dest-note">Placeholder content: confirm actual licensed job markets and partner hospitals before publishing.</p>
       <div class="dest-groups">
         <div class="dest-group is-staffing">
           <h3>
@@ -908,24 +902,28 @@
       <div class="section-head">
         <p class="eyebrow">Get in touch</p>
         <h2>Talk to the Bonanza desk</h2>
-        <p>Enquiries for either company reach the same desk. Details below are placeholders &mdash; replace before the site goes live.</p>
+        <p>Enquiries for either company reach the same desk, day or night &mdash; we're open 24 hours.</p>
       </div>
       <div class="contact-grid">
         <div class="field">
           <span class="field-label">Telephone</span>
-          <span class="placeholder">[ add phone number ]</span>
+          <span class="value"><a href="tel:+256750626782">+256 750 626 782</a><span class="sep">&middot;</span><a href="tel:+256200950444">+256 200 950 444</a></span>
         </div>
         <div class="field">
           <span class="field-label">Email</span>
-          <span class="placeholder">[ add email address ]</span>
+          <span class="value"><a href="mailto:bonanzastaffing.solutions@gmail.com">bonanzastaffing.solutions@gmail.com</a></span>
         </div>
         <div class="field">
-          <span class="field-label">Office</span>
-          <span class="placeholder">[ add street address, Kampala ]</span>
+          <span class="field-label">Head office</span>
+          <span class="value">Nkono A, along Kaliro Road, Iganga, Uganda</span>
+        </div>
+        <div class="field">
+          <span class="field-label">Branch office</span>
+          <span class="value">Joel Complex Building, Lweza, Entebbe Road</span>
         </div>
         <div class="field">
           <span class="field-label">Hours</span>
-          <span class="placeholder">[ add working hours ]</span>
+          <span class="value">Open 24 hours</span>
         </div>
       </div>
     </div>
@@ -948,6 +946,6 @@
         Uganda
       </span>
     </div>
-    <p class="note">Draft site &mdash; replace bracketed placeholders (contact details, registration numbers, destinations) with confirmed information before publishing live.</p>
+    <p class="note">One group. Two mandates. Open around the clock.</p>
   </div>
 </footer>
